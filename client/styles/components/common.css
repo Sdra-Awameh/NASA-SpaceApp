@@ -1,0 +1,36 @@
+/*! ===== Loading Skeleton ===== */
+.bg-loading-skeleton {
+    background: var(--bg-black-50);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/*! ===== Severity Badge Styles ===== */
+.badge-low {
+    background: var(--bg-black-25);
+    color: var(--text-black-900);
+    border: 1px solid var(--bg-black-50);
+}
+
+.badge-medium {
+    background: var(--bg-black-25);
+    color: var(--text-black-700);
+    border: 1px solid var(--bg-black-50);
+}
+
+.badge-high {
+    background: var(--bg-black-25);
+    color: var(--text-black-600);
+    border: 1px solid var(--bg-black-50);
+}

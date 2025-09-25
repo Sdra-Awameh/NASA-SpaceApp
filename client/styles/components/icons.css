@@ -1,0 +1,66 @@
+/*! ===== Brand Icon Styles ===== */
+.brand-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.brand-icon-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    opacity: 0.3;
+}
+
+.brand-icon-bg:nth-child(2) {
+    filter: blur(4px);
+    opacity: 0.5;
+}
+
+.brand-icon-satellite {
+    position: relative;
+    z-index: 10;
+    height: 1.25rem;
+    width: 1.25rem;
+    color: hsl(var(--brand-blue));
+    filter: drop-shadow(0 0 2px currentColor);
+}
+
+.brand-icon:hover .brand-icon-bg {
+    opacity: 0.7 !important;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.brand-icon:hover .brand-icon-satellite {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+/*! ===== Event Type Icon Styles ===== */
+.icon-solar-flare {
+    color: hsl(var(--brand-rose));
+}
+
+.icon-asteroid {
+    color: hsl(var(--brand-amber));
+}
+
+.icon-storm {
+    color: hsl(var(--brand-blue));
+}
+
+.icon-earthquake {
+    color: hsl(var(--brand-indigo));
+}
+
+.icon-satellite {
+    color: hsl(var(--brand-fuchsia));
+}
+
+.icon-space {
+    color: hsl(var(--brand-emerald));
+}

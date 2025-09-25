@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# ChronoCast
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ChronoCast is a modern, multi-service web application that combines **weather**, **natural events**, and **media data** into a single, interactive dashboard. It features:
+- **React SPA frontend** (client)
+- **Node.js backend** (API aggregator)
+- **Python FastAPI service** (probability engine)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What does ChronoCast do?
 
-## React Compiler
+- Aggregate weather, natural events, and NASA-style media for any location and date  
+- Compute weather probabilities using real mathematical models  
+- Present everything in a responsive, single-page dashboard  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Weather, events, and media APIs
+- Probability calculations (Node.js + Python)
+- Modern UI with theming and reusable components
+- Type-safe API communication
+- Containerized for easy deployment
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Example API Endpoints
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Weather:**  
+`GET /api/weather?lat=35.9&lon=31.9&date=2023-06-10`
+
+**Events:**  
+`GET /api/events?eventType=storm`
+
+**Media:**  
+`GET /api/media?title=earth`
+
+**Probability:**  
+`GET /api/probability?lat=35.9&lon=31.9&date=2023-06-10` (Node.js, GET)  
+`POST /api/probability` (Python, POST; for advanced calculations)
+
+---
+
+## Project Structure (Short Overview)
+
+```bash
+ChronoCast/
+├── client/              # React SPA frontend
+├── server/              # Node.js API backend
+├── python-service/      # Python FastAPI probability engine
+└── shared/              # Shared TypeScript interfaces
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- For installation steps, environment configuration, troubleshooting, and technical details, see [SETUP.md](./SETUP.md).
+- For API details, see each service's README and code comments.
+
+<!-- 
+## Demo & Screenshots
+
+![ChronoCast Dashboard](./screenshots/dashboard.png)
+-->
+
+---
+
+## Supported Environments 
+
+Runs locally, via Docker Compose, or on cloud platforms (Netlify, Vercel, Railway, AWS, GCP, Azure).
+
+---
+
+
+## Contact
+
+> Website: [rashaalsaleh.com](https://rashaalsaleh.com) | Email: [rasha.k.alsaleh@gmail.com](mailto:rasha.k.alsaleh@gmail.com) | LinkedIn: [@rasha-alsaleh](https://www.linkedin.com/in/rasha-alsaleh/)

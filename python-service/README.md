@@ -79,40 +79,40 @@ Root endpoint with service information.
 ### Local Development
 
 1. **Navigate to the Python service directory:**
-   ```bash
+```bash
    cd python-service
-   ```
+```
 
 2. **Create virtual environment:**
-   ```bash
+```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+```
 
 3. **Install dependencies:**
-   ```bash
+```bash
    pip install -r requirements.txt
-   ```
+```
 
 4. **Run with uvicorn (development):**
-   ```bash
+```bash
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   ```
+```
 
 5. **Run with Python directly:**
-   ```bash
+```bash
    python main.py
-   ```
+```
 
 ### Docker Deployment
 
 1. **Build Docker image:**
-   ```bash
+```bash
    docker build -t chronocast-python .
-   ```
+```
 
 2. **Run container:**
-   ```bash
+```bash
    docker run -p 8000:8000 chronocast-python
    ```
 
@@ -209,7 +209,7 @@ The API returns appropriate HTTP status codes:
 
 ## Environment Variables
 
-```env
+```bash
 # Service configuration (optional)
 PORT=8000
 HOST=0.0.0.0
@@ -223,7 +223,7 @@ ALLOWED_ORIGINS=http://localhost:8080,http://localhost:3000
 
 ### Code Structure
 
-```
+```bash
 python-service/
 ├── main.py            # FastAPI application
 ├── requirements.txt   # Python dependencies

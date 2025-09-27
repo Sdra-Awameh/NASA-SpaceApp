@@ -11,44 +11,44 @@ export const handleEvents: RequestHandler = (req, res) => {
     // Mock natural events data
     const eventsData: EventResponse[] = [
       {
-        title: "Storm",
-        date: "2023-06-10",
-        location: {
-          lat: 35.9,
-          lon: 31.9
-        }
+        id: 1,
+        type: "solar-flare",
+        name: "Solar Flare M-Class",
+        probability: 75,
+        severity: "medium",
+        location: { lat: 31.9539, lon: 35.9106 },
+        date: "2025-09-24",
+        description: "Moderate solar flare expected to impact satellite communications"
       },
       {
-        title: "Heatwave",
-        date: "2023-06-12",
-        location: {
-          lat: 35.9,
-          lon: 31.9
-        }
+        id: 2,
+        type: "asteroid",
+        name: "Asteroid 2023 DW Close Approach",
+        probability: 45,
+        severity: "low",
+        location: { lat: 25.2048, lon: 55.2708 },
+        date: "2025-09-25",
+        description: "Near-Earth asteroid will make close approach"
       },
       {
-        title: "Earthquake",
-        date: "2023-06-15",
-        location: {
-          lat: 34.0,
-          lon: -118.2
-        }
+        id: 3,
+        type: "storm",
+        name: "Hurricane Formation",
+        probability: 85,
+        severity: "high",
+        location: { lat: 25.7617, lon: -80.1918 }, // unchanged
+        date: "2025-09-26",
+        description: "Tropical storm formation predicted in Atlantic Ocean"
       },
       {
-        title: "Flood",
-        date: "2023-06-18",
-        location: {
-          lat: 40.7,
-          lon: -74.0
-        }
-      },
-      {
-        title: "Wildfire",
-        date: "2023-06-20",
-        location: {
-          lat: 37.8,
-          lon: -122.4
-        }
+        id: 4,
+        type: "heatwave",
+        name: "Heatwave M-Class",
+        probability: 90,
+        severity: "high",
+        location: { lat: 25.7617, lon: -80.1918 },
+        date: "2025-09-26",
+        description: "Heatwave conditions expected in Florida"
       }
     ];
 
@@ -60,7 +60,7 @@ export const handleEvents: RequestHandler = (req, res) => {
     // Filter by location if provided
     if (location) {
       const locationStr = location.toString().toLowerCase();
-      filteredEvents = filteredEvents.filter(event => 
+      filteredEvents = filteredEvents.filter(event =>
         event.location.lat.toString().includes(locationStr) ||
         event.location.lon.toString().includes(locationStr)
       );
@@ -68,7 +68,7 @@ export const handleEvents: RequestHandler = (req, res) => {
 
     // Filter by date if provided
     if (date) {
-      filteredEvents = filteredEvents.filter(event => 
+      filteredEvents = filteredEvents.filter(event =>
         event.date.includes(date.toString())
       );
     }
@@ -76,8 +76,8 @@ export const handleEvents: RequestHandler = (req, res) => {
     // Filter by event type if provided
     if (eventType) {
       const eventTypeStr = eventType.toString().toLowerCase();
-      filteredEvents = filteredEvents.filter(event => 
-        event.title.toLowerCase().includes(eventTypeStr)
+      filteredEvents = filteredEvents.filter(event =>
+        event.type.toLowerCase().includes(eventTypeStr)
       );
     }
 

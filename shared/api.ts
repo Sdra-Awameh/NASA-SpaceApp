@@ -24,27 +24,6 @@ export interface WeatherResponse {
 }
 
 /**
- * Event API response type for /api/events
- */
-export interface EventResponse {
-  title: string;
-  date: string;
-  location: {
-    lat: number;
-    lon: number;
-  };
-}
-
-/**
- * Media API response type for /api/media
- */
-export interface MediaResponse {
-  title: string;
-  url: string;
-  date: string;
-}
-
-/**
  * Weather API query parameters
  */
 export interface WeatherQueryParams {
@@ -54,11 +33,51 @@ export interface WeatherQueryParams {
 }
 
 /**
+ * Event types and severity levels
+ */
+export type EventType = "solar-flare" | "asteroid" | "storm" | "earthquake" | "heatwave" | "flood" | "wildfire";
+export type SeverityLevel = "low" | "medium" | "high";
+
+/**
+ * Event API response type for /api/events
+ */
+export interface EventResponse {
+  id: number;
+  type: EventType;
+  name: string; 
+  probability: number; // %
+  severity: SeverityLevel;
+  location: {
+    lat: number;
+    lon: number;
+  };
+  date: string;
+  description: string;
+}
+
+/**
+ * Media API response type for /api/media
+ */
+export interface MediaResponse {
+  title: string;
+  url: string;
+  date: string;
+  description?: string;
+}
+
+/**
  * Probability API response type for /api/probability
  */
 export interface ProbabilityResponse {
-  rainProbability: number;
-  heatwaveProbability: number;
-  windyDayProbability: number;
-  avgTemperature: number;
+  location: { lat: number; lon: number };
+  date: string;
+  probability: number;
+  details?: {
+    model: string;
+    confidence: number;
+  };
+  rainProbability?: number;
+  heatwaveProbability?: number;
+  windyDayProbability?: number;
+  avgTemperature?: number;
 }

@@ -1,6 +1,6 @@
 /*! ===== Loading Skeleton ===== */
 .cc-skeleton {
-    background: var(--bg-black-50);
+    background: var(--bg-black-25);
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -42,7 +42,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
     background: transparent;
     opacity: 0.9;

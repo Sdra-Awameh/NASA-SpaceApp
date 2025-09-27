@@ -3,6 +3,7 @@ import { AppLayout } from "@/components/layout/Layout";
 import { LoadingSkeleton } from "@/components/common/LoadingSkeleton";
 import { SeverityBadge, SeverityLevel } from "@/components/common/SeverityBadge";
 import { EventTypeIcon, EventType } from "@/components/icons/EventTypeIcon";
+import EventMap from "@/components/common/EventMap";
 import { Calendar, MapPin, RefreshCcw, Thermometer, Flag } from "lucide-react";
 import {
   LineChart,
@@ -13,9 +14,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-  // Show skeleton on initial load, then hide after 1200ms
 
-interface Event {
+export interface AppEvent {
   id: number;
   type: EventType;
   name: string;
@@ -31,14 +31,14 @@ interface ProbabilityData {
   probability: number;
 }
 
-const mockEvents: Event[] = [
+const mockEvents: AppEvent[] = [
   {
     id: 1,
     type: "solar-flare",
     name: "Solar Flare M-Class",
     probability: 75,
     severity: "medium",
-    location: { lat: 0, lng: 0 },
+    location: { lat: 31.9539, lng: 35.9106 },
     date: "2025-09-24",
     description: "Moderate solar flare expected to impact satellite communications",
   },
@@ -48,7 +48,7 @@ const mockEvents: Event[] = [
     name: "Asteroid 2023 DW Close Approach",
     probability: 45,
     severity: "low",
-    location: { lat: 35.6762, lng: 139.6503 },
+    location: { lat: 25.2048, lng: 55.2708 },
     date: "2025-09-25",
     description: "Near-Earth asteroid will make close approach",
   },
@@ -61,6 +61,16 @@ const mockEvents: Event[] = [
     location: { lat: 25.7617, lng: -80.1918 },
     date: "2025-09-26",
     description: "Tropical storm formation predicted in Atlantic Ocean",
+  },
+  {
+    id: 4,
+    type: "earthquake",
+    name: "Earthquake M-Class",
+    probability: 90,
+    severity: "high",
+    location: { lat: 25.7617, lng: -80.1918 },
+    date: "2025-09-26",
+    description: "Heatwave conditions expected in Florida"
   },
 ];
 
@@ -81,24 +91,24 @@ const mockNASAImage = {
 };
 
 export default function Dashboard() {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<AppEvent | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("2025-09-24");
   const [selectedLocation, setSelectedLocation] = useState<string>("Global");
   const [eventFilter, setEventFilter] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(true);
+
+  const showLoading = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 600);
+  };
+
   useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => setLoading(false), 1200);
-      return () => clearTimeout(timer);
-    }
-  }, [loading]);
+    showLoading();
+  }, []);
 
   const filtered = mockEvents.filter((e) => eventFilter === "all" || e.type === (eventFilter as EventType));
 
-  const refresh = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1200);
-  };
+  const refresh = showLoading;
 
   return (
     <AppLayout>
@@ -201,19 +211,10 @@ export default function Dashboard() {
             <div className="cc-dashboard-map">
               <h3 className="mb-3 text-sm font-semibold">Event Map</h3>
               {loading ? (
-                <LoadingSkeleton className="h-64 w-full" />
+                <LoadingSkeleton className="h-80 w-full" />
               ) : (
-                <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-blue-950 via-slate-900 to-emerald-950">
-                  <div className="absolute inset-0 opacity-20 [background:radial-gradient(circle_at_20%_30%,#60a5fa_0%,transparent_30%),radial-gradient(circle_at_80%_70%,#22c55e_0%,transparent_30%)]" />
-                  <div className="z-10 text-center">
-                    <MapPin className="mx-auto mb-2 h-8 w-8 text-blue-300" />
-                    <p className="text-sm text-white">Interactive Map Placeholder</p>
-                    <p className="text-xs text-muted-foreground">{filtered.length} events visible</p>
-                  </div>
-                  {/* markers */}
-                  <span className="absolute left-1/3 top-1/4 h-2 w-2 animate-pulse rounded-full bg-rose-500" />
-                  <span className="absolute right-1/4 top-1/2 h-2 w-2 animate-pulse rounded-full bg-amber-400" />
-                  <span className="absolute left-1/2 bottom-1/3 h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                <div className="h-80 w-full rounded-lg overflow-hidden">
+                  <EventMap events={filtered} />
                 </div>
               )}
             </div>

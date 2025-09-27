@@ -6,8 +6,8 @@
 
 .cc-about-main {
     border-radius: 1rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg);
+    border: 1px solid var(--border);
+    background: var(--background);
     padding: 2rem;
     box-shadow: var(--shadow-md);
 }
@@ -20,13 +20,13 @@
 .cc-about-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
     line-height: 1.2;
 }
 
 .cc-about-subtitle {
     margin-top: 0.5rem;
-    color: var(--cc-color-muted-foreground);
+    color: var(--muted-foreground);
     font-size: 1rem;
 }
 
@@ -34,26 +34,26 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
 }
 
 .cc-about-section-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
     margin-bottom: 0.75rem;
 }
 
 .cc-about-section-desc {
     line-height: 1.6;
-    color: var(--cc-color-muted-foreground);
+    color: var(--muted-foreground);
 }
 
 .cc-about-section-list {
     margin-top: 0.75rem;
     padding-left: 1.25rem;
     list-style-type: disc;
-    color: var(--cc-color-muted-foreground);
+    color: var(--muted-foreground);
     line-height: 1.6;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .cc-about-section-list li::marker {
-    color: hsl(var(--brand-blue));
+    color: var(--brand-primary);
 }
 
 /*! ===== Dashboard Page Styles ===== */
@@ -79,8 +79,8 @@
     justify-content: space-between;
     gap: 0.75rem;
     border-radius: 0.5rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg);
+    border: 1px solid var(--border);
+    background: var(--background);
     padding: 0.75rem;
     text-align: left;
     transition: all 0.2s ease;
@@ -88,7 +88,7 @@
 }
 
 .dashboard-event-button:hover {
-    background: var(--cc-bg-accent);
+    background: var(--accent);
     border-color: hsl(var(--primary) / 0.3);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
@@ -98,19 +98,19 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border-radius: var(--cc-radius-md);
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--background);
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .dashboard-refresh-button:hover {
-    background: var(--cc-bg-accent);
-    color: var(--cc-color-accent-foreground);
+    background: var(--accent);
+    color: var(--accent-foreground);
 }
 
 /* Dashboard Form Controls */
@@ -118,24 +118,24 @@
 .dashboard-input {
     margin-top: 0.25rem;
     width: 100%;
-    border-radius: var(--cc-radius-md);
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--text-black-600);
+    background: var(--background);
     padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
     transition: all 0.2s ease;
 }
 
 .dashboard-select:focus,
 .dashboard-input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--cc-color-ring);
+    box-shadow: 0 0 0 2px var(--ring);
 }
 
 .dashboard-select option {
-    background: var(--cc-bg);
-    color: var(--cc-color-foreground);
+    background: var(--background);
+    color: var(--foreground);
 }
 
 /* Dashboard Modal */
@@ -156,26 +156,27 @@
     max-width: 32rem;
     overflow-y: auto;
     border-radius: 0.75rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
     padding: 1.5rem;
     box-shadow: var(--shadow-lg);
 }
 
 .dashboard-modal-close {
-    border-radius: var(--cc-radius-md);
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg-muted);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--muted);
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
-    color: var(--cc-color-foreground);
+    color: var(--foreground);
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .dashboard-modal-close:hover {
-    background: var(--cc-bg-accent);
-    color: var(--cc-color-accent-foreground);
+    background: var(--accent);
+    color: var(--accent-foreground);
 }
 
 .cc-dashboard-kpis {
@@ -192,8 +193,9 @@
 
 .cc-dashboard-kpi {
     border-radius: 1rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-dashboard-kpi-bg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(2px);
     padding: 1rem;
     box-shadow: var(--shadow-md);
     transition: all 0.2s ease;
@@ -212,7 +214,7 @@
 
 .cc-dashboard-kpi-label {
     font-size: 0.875rem;
-    color: var(--cc-dashboard-kpi-label);
+    color: var(--muted-foreground);
 }
 
 .cc-dashboard-kpi-value {
@@ -222,19 +224,19 @@
 }
 
 .cc-dashboard-kpi-value.text-emerald-300 {
-    color: var(--cc-dashboard-kpi-emerald);
+    color: var(--success);
 }
 
 .cc-dashboard-kpi-value.text-blue-300 {
-    color: var(--cc-dashboard-kpi-blue);
+    color: var(--brand-primary);
 }
 
 .cc-dashboard-kpi-value.text-fuchsia-300 {
-    color: var(--cc-dashboard-kpi-fuchsia);
+    color: var(--brand-secondary);
 }
 
 .cc-dashboard-kpi-value.text-amber-300 {
-    color: var(--cc-dashboard-kpi-amber);
+    color: var(--warning);
 }
 
 .cc-dashboard-kpi-icon {
@@ -260,19 +262,10 @@
 .cc-dashboard-probability,
 .cc-dashboard-upcoming {
     border-radius: 1rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg-muted);
+    border: 1px solid var(--border);
+    background: var(--muted);
     padding: 1rem;
     transition: all 0.2s ease;
-}
-
-.cc-dashboard-controls:hover,
-.cc-dashboard-nasa:hover,
-.cc-dashboard-map:hover,
-.cc-dashboard-probability:hover,
-.cc-dashboard-upcoming:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
 }
 
 /*! ===== Landing Page Styles ===== */
@@ -280,7 +273,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 1.5rem;
-    border: 1px solid var(--cc-color-border);
+    border: 1px solid var(--border);
     background: var(--gradient-main);
     padding: 1.5rem;
 }
@@ -304,7 +297,7 @@
     height: 18rem;
     width: 18rem;
     border-radius: 50%;
-    background: hsla(var(--brand-blue), 0.2);
+    background: hsla(var(--brand-primary), 0.2);
     filter: blur(48px);
 }
 
@@ -315,7 +308,7 @@
     height: 18rem;
     width: 18rem;
     border-radius: 50%;
-    background: hsla(var(--brand-fuchsia), 0.2);
+    background: hsla(var(--brand-secondary), 0.2);
     filter: blur(48px);
 }
 
@@ -339,11 +332,11 @@
     gap: 0.5rem;
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--cc-color-muted-foreground);
+    color: var(--muted-foreground);
 }
 
 .cc-landing-title {
-    background: var(--gradient-brand);
+    background: var(--gradient-accent);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -362,7 +355,7 @@
 .cc-landing-description {
     margin-top: 1rem;
     max-width: 36rem;
-    color: var(--cc-color-muted-foreground);
+    color: white;
     line-height: 1.6;
 }
 
@@ -379,13 +372,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    background: var(--gradient-brand);
+    background: var(--gradient-accent);
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
     font-weight: 600;
     color: white;
     text-decoration: none;
-    box-shadow: 0 10px 15px -3px hsla(var(--brand-blue), 0.2);
+    box-shadow: 0 10px 15px -3px hsla(var(--brand-primary), 0.2);
     transition: transform 0.2s ease;
 }
 
@@ -398,19 +391,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    border: 1px solid var(--cc-color-border);
-    background: var(--cc-bg-muted);
+    border: 1px solid #2D2B55;
+    background: #2D2B55;
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--cc-color-foreground);
+    color: #ffffff;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .cc-landing-btn-secondary:hover {
-    background: var(--cc-bg-accent);
-    color: var(--cc-color-accent-foreground);
+    background: var(--accent);
+    color: var(--accent-foreground);
 }
 
 .cc-landing-visual {
@@ -423,8 +416,9 @@
     width: 100%;
     overflow: hidden;
     border-radius: 1rem;
-    border: 1px solid var(--cc-color-border);
-    background: var(--gradient-light);
+    border: 1px solid #2D2B55;
+    background: rgba(var(--secondary-rgb), 0.5);
+    backdrop-filter: blur(10px);
 }
 
 .cc-landing-visual-pattern {
@@ -446,13 +440,13 @@
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    border-radius: var(--cc-radius-md);
-    border: 1px solid var(--cc-color-border);
+    border-radius: var(--radius);
+    border: 1px solid #2D2B55;
     background: hsla(var(--bg-black-900), 0.8);
     backdrop-filter: blur(8px);
     padding: 0.5rem 0.75rem;
     font-size: 0.75rem;
-    color: var(--cc-color-muted-foreground);
+    color: white;
 }
 
 .cc-landing-stats {
@@ -471,7 +465,7 @@
 .cc-landing-stat-card {
     border-radius: 0.75rem;
     border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
+    background: rgba(75, 74, 122, 0.4);
     backdrop-filter: blur(2px);
     padding: 1rem;
     transition: all 0.2s ease;
@@ -484,7 +478,7 @@
 
 .cc-landing-stat-label {
     font-size: 0.75rem;
-    color: var(--cc-color-muted-foreground);
+    color: white;
 }
 
 .cc-landing-stat-value {
@@ -494,17 +488,17 @@
 }
 
 .cc-landing-stat-emerald {
-    color: hsl(var(--brand-emerald));
+    color: var(--success);
 }
 
 .cc-landing-stat-blue {
-    color: hsl(var(--brand-blue));
+    color: var(--brand-primary);
 }
 
 .cc-landing-stat-fuchsia {
-    color: hsl(var(--brand-fuchsia));
+    color: var(--brand-secondary);
 }
 
 .cc-landing-stat-amber {
-    color: hsl(var(--brand-amber));
+    color: var(--warning);
 }

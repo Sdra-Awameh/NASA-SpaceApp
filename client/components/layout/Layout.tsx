@@ -22,7 +22,7 @@ export function AppLayout({ children }: PropsWithChildren<{}>) {
   );
 
   return (
-    <div id="app-layout" className="app-layout">
+    <div id="app-layout" className="app-layout" style={{ position: "relative", overflow: "hidden" }}>
       <header id="main-header" className="main-header">
         <div id="header-container" className="header-container">
           <Link to="/" id="brand-link" className="brand-link">
@@ -31,7 +31,7 @@ export function AppLayout({ children }: PropsWithChildren<{}>) {
               CHRONOCAST
             </span>
           </Link>
-          
+
           <nav id="main-nav" className="main-nav">
             <NavLink to="/" label="Home" />
             <NavLink to="/dashboard" label="Dashboard" />
@@ -47,7 +47,7 @@ export function AppLayout({ children }: PropsWithChildren<{}>) {
               Star
             </a>
           </nav>
-          
+
           <div id="header-actions" className="header-actions">
             <button
               id="theme-toggle"
@@ -67,11 +67,11 @@ export function AppLayout({ children }: PropsWithChildren<{}>) {
           </div>
         </div>
       </header>
-      
+
       <main id="main-content" className="main-content">
         {children}
       </main>
-      
+
       <footer id="main-footer" className="main-footer">
         <div id="footer-container" className="footer-container">
           <p id="footer-copyright" className="footer-copyright">

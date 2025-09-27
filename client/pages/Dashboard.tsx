@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AppLayout } from "@/components/layout/Layout";
 import { LoadingSkeleton } from "@/components/common/LoadingSkeleton";
 import { SeverityBadge, SeverityLevel } from "@/components/common/SeverityBadge";
@@ -13,6 +13,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+  // Show skeleton on initial load, then hide after 1200ms
 
 interface Event {
   id: number;
@@ -84,7 +85,13 @@ export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState<string>("2025-09-24");
   const [selectedLocation, setSelectedLocation] = useState<string>("Global");
   const [eventFilter, setEventFilter] = useState<string>("all");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => setLoading(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   const filtered = mockEvents.filter((e) => eventFilter === "all" || e.type === (eventFilter as EventType));
 
@@ -122,11 +129,11 @@ export default function Dashboard() {
             <div className="cc-dashboard-controls">
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-sm font-semibold">Controls</h3>
-                <button 
-                  onClick={refresh} 
+                <button
+                  onClick={refresh}
                   className="dashboard-refresh-button"
                 >
-                  <RefreshCcw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} /> 
+                  <RefreshCcw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />
                   Refresh
                 </button>
               </div>
@@ -219,31 +226,25 @@ export default function Dashboard() {
                 ) : (
                   <ResponsiveContainer width="100%" height={220}>
                     <LineChart data={mockProbabilityData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                      <XAxis 
-                        dataKey="date" 
-                        stroke="hsl(var(--muted-foreground))" 
-                        fontSize={12} 
+                      <CartesianGrid className="cc-chart-grid" />
+                      <XAxis
+                        dataKey="date"
+                        className="cc-chart-axis"
                       />
-                      <YAxis 
-                        stroke="hsl(var(--muted-foreground))" 
-                        fontSize={12} 
+                      <YAxis
+                        className="cc-chart-axis"
                       />
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: "hsl(var(--popover))", 
-                          border: "1px solid hsl(var(--border))", 
-                          borderRadius: 8, 
-                          fontSize: 12, 
-                          color: "hsl(var(--popover-foreground))" 
-                        }} 
+                      <Tooltip
+                        wrapperClassName="cc-chart-tooltip"
+                        contentStyle={{}}
+                        labelStyle={{}}
+                        itemStyle={{}}
                       />
-                      <Line 
-                        type="monotone" 
-                        dataKey="probability" 
-                        stroke="hsl(var(--brand-blue))" 
-                        strokeWidth={2} 
-                        dot={{ r: 2, fill: "hsl(var(--brand-blue))" }} 
+                      <Line
+                        type="monotone"
+                        dataKey="probability"
+                        className="cc-chart-line-primary"
+                        dot={{ className: "cc-chart-dot-primary" }}
                       />
                     </LineChart>
                   </ResponsiveContainer>
@@ -265,7 +266,7 @@ export default function Dashboard() {
                     ))}
                   </div>
                 ) : (
-                  <div className="max-h-64 space-y-3 overflow-y-auto pr-1">
+                  <div className="max-h-64 space-y-3 pr-1">
                     {filtered.map((e) => (
                       <button
                         key={e.id}
@@ -301,8 +302,8 @@ export default function Dashboard() {
                 <EventTypeIcon type={selectedEvent.type} className="h-6 w-6" />
                 <h2 className="truncate text-lg font-bold">{selectedEvent.name}</h2>
               </div>
-              <button 
-                onClick={() => setSelectedEvent(null)} 
+              <button
+                onClick={() => setSelectedEvent(null)}
                 className="dashboard-modal-close"
               >
                 Close

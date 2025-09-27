@@ -1,5 +1,5 @@
 /*! ===== Loading Skeleton ===== */
-.bg-loading-skeleton {
+.cc-skeleton {
     background: var(--bg-black-50);
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -33,4 +33,18 @@
     background: var(--bg-black-25);
     color: var(--text-black-600);
     border: 1px solid var(--bg-black-50);
+}
+
+/*! ===== Space Background Canvas ===== */
+.space-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    background: transparent;
+    opacity: 0.9;
+    transition: opacity 0.3s;
 }

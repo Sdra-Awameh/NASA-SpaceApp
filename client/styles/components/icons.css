@@ -12,7 +12,7 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: var(--gradient-brand);
+    background: var(--gradient-accent);
     opacity: 0.3;
 }
 
@@ -26,7 +26,7 @@
     z-index: 10;
     height: 1.25rem;
     width: 1.25rem;
-    color: hsl(var(--brand-blue));
+    color: var(--brand-primary);
     filter: drop-shadow(0 0 2px currentColor);
 }
 
@@ -46,11 +46,11 @@
 }
 
 .icon-asteroid {
-    color: hsl(var(--brand-amber));
+    color: var(--warning);
 }
 
 .icon-storm {
-    color: hsl(var(--brand-blue));
+    color: var(--brand-primary);
 }
 
 .icon-earthquake {
@@ -58,9 +58,9 @@
 }
 
 .icon-satellite {
-    color: hsl(var(--brand-fuchsia));
+    color: var(--brand-secondary);
 }
 
 .icon-space {
-    color: hsl(var(--brand-emerald));
+    color: var(--success);
 }

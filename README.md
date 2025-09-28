@@ -72,8 +72,3 @@ ChronoCast/
 Runs locally, via Docker Compose, or on cloud platforms (Netlify, Vercel, Railway, AWS, GCP, Azure).
 
 ---
-
-
-## Contact
-
-> Website: [rashaalsaleh.com](https://rashaalsaleh.com) | Email: [rasha.k.alsaleh@gmail.com](mailto:rasha.k.alsaleh@gmail.com) | LinkedIn: [@rasha-alsaleh](https://www.linkedin.com/in/rasha-alsaleh/)

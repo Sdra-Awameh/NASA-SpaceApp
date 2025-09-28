@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ChronoCast
 
 ChronoCast is a modern, multi-service web application that combines **weather**, **natural events**, and **media data** into a single, interactive dashboard. It features:
@@ -78,13 +77,3 @@ Runs locally, via Docker Compose, or on cloud platforms (Netlify, Vercel, Railwa
 ## Contact
 
 > Website: [rashaalsaleh.com](https://rashaalsaleh.com) | Email: [rasha.k.alsaleh@gmail.com](mailto:rasha.k.alsaleh@gmail.com) | LinkedIn: [@rasha-alsaleh](https://www.linkedin.com/in/rasha-alsaleh/)
-=======
-# 🌦️ NASA Space App – Will It Rain On My Parade?
-
-A simple web app idea that helps people plan outdoor events by showing the likelihood of extreme weather conditions (very hot, very cold, very wet, very windy, or uncomfortable).  
-Using NASA Earth observation data, the tool estimates weather probabilities based on decades of global data to support better decision-making.
-
-## 🚀 Goal
-Provide an easy-to-use interface where users can quickly check weather risks for their events and plan accordingly.
-
->>>>>>> origin/main
